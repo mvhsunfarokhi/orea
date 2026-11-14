@@ -1,0 +1,65 @@
+const CDN = "https://marcopanconesi.com/cdn/shop/files/";
+const COLLECTION_CDN = "https://marcopanconesi.com/cdn/shop/collections/";
+
+type SeedProductRow = [string, string, number, string, string | undefined, string, string, number?, string[]?];
+type SeedCollectionRow = [string, string, string, string];
+
+export const SEED_PRODUCTS = ([
+  ["diamanti-nova-ring-silver-fw26", "Diamanti Nova Ring", 492, "110.jpg?v=1783072194&width=800", "Cropped_163.jpg?v=1783085814&width=800", "Constellation", "Finger", undefined, ["S", "M"]],
+  ["diamanti-pendant-ring-large-silver-fw26", "Diamanti Pendant Ring Large", 335, "102.jpg?v=1783070342&width=800", "2137.jpg?v=1783351776&width=800", "Constellation", "Finger", undefined, ["S", "M", "L"]],
+  ["diamanti-pendant-ring-small-silver-fw26", "Diamanti Pendant Ring Small", 251, "101_31d283d4-c051-42e1-8ef2-40d679a658d8.jpg?v=1783070193&width=800", "Cropped_173.jpg?v=1783085675&width=800", "Constellation", "Finger", undefined, ["S", "M", "L"]],
+  ["kismet-hoops-silver-fw26", "Kismet Hoops", 471, "95.jpg?v=1783070117&width=800", "Cropped_146.jpg?v=1783085512&width=800", "Ascolto", "Ear"],
+  ["pierced-circle-cuff-silver-fw26", "Pierced Circle Cuff", 309, "130.jpg?v=1783072991&width=800", "Cropped_101.jpg?v=1783082125&width=800", "Orbit", "Ear", 1],
+  ["blow-up-helix-ear-cuff-silver-fw26", "Blow Up Helix Ear Cuff", 157, "151.jpg?v=1783070654&width=800", "Cropped_63.jpg?v=1783086490&width=800", "Blow Up", "Ear", 1],
+  ["blow-up-forma-ear-cuff-silver-fw26", "Blow Up Forma Ear Cuff", 293, "77.jpg?v=1783072308&width=800", "Cropped_65.jpg?v=1783086865&width=800", "Blow Up", "Ear", 2],
+  ["blow-up-forma-ring-silver-fw26", "Blow Up Forma Ring", 345, "78.jpg?v=1783072309&width=800", undefined, "Blow Up", "Finger", undefined, ["S", "M", "L", "XL"]],
+  ["pierced-solar-hoops-large-silver-fw26", "Pierced Solar Hoops Large", 439, "54.jpg?v=1783069895&width=800", undefined, "Stellar", "Ear", 1],
+  ["pierced-helix-earrings-silver-fw26", "Pierced Helix Earrings", 408, "45.jpg?v=1783069765&width=800", undefined, "Orbit", "Ear"],
+  ["orbit-ear-cuff-silver-ss26", "Orbit Ear Cuff", 272, "147.jpg?v=1753899850&width=800", undefined, "Orbit", "Ear"],
+  ["orbit-multi-ear-cuff-silver-fw26", "Orbit Multi Ear Cuff", 314, "148.jpg?v=1783070974&width=800", undefined, "Orbit", "Ear", 1],
+  ["pierced-solar-hoops-large-gold-fw26", "Pierced Solar Hoops Large", 539, "55.jpg?v=1783069902&width=800", undefined, "Stellar", "Ear"],
+  ["pierced-huggies-gold-ss26", "Pierced Huggies", 340, "125.jpg?v=1753899838&width=800", undefined, "Stellar", "Ear", 1],
+  ["nova-earrings-gold-fw26", "Nova Earrings", 335, "112.jpg?v=1783072198&width=800", undefined, "Constellation", "Ear", 1],
+  ["ascolto-aura-drop-earrings-pink-fw26", "Ascolto Aura Drop Earrings", 450, "128.jpg?v=1783073003&width=800", undefined, "Ascolto", "Ear"],
+  ["ascolto-aura-ring-pink-fw26", "Ascolto Aura Ring", 309, "129.jpg?v=1783073021&width=800", undefined, "Ascolto", "Finger", undefined, ["S", "M", "L"]],
+  ["blow-up-forma-earrings-silver-gold-fw26", "Blow Up Forma Earrings", 633, "81.jpg?v=1783072350&width=800", undefined, "Blow Up", "Ear"],
+  ["kismet-earrings-silver-fw26", "Kismet Earrings", 816, "94.jpg?v=1783070106&width=800", undefined, "Ascolto", "Ear"],
+  ["orbit-choker-silver-fw26", "Orbit Choker", 957, "149.jpg?v=1783071015&width=800", undefined, "Orbit", "Neck"],
+  ["pierced-serpent-hoops-silver-cao", "Pierced Serpent Hoops", 314, "Panconesi-SS24-Packshots-_14.01.24_0142.jpg?v=1753516091&width=1200", "40_2.jpg?v=1754073950&width=1200", "Serpent", "Ear", 1],
+  ["blow-up-ear-cuff-silver-cao", "Blow Up Cuff", 251, "122.jpg?v=1783087410&width=800", "Cropped_12.jpg?v=1783087384&width=800", "Blow Up", "Ear"],
+  ["serpent-hoops-small-silver-cao", "Serpent Hoops Small", 251, "PANCONESI0746_40485159-05bf-4ca2-a331-88024bb6c701.jpg?v=1737107382&width=800", "42-2.jpg?v=1754074017&width=800", "Serpent", "Ear"],
+  ["blow-up-stellar-ear-cuff-silver-cao", "Blow Up Stellar Cuff", 188, "PANCONESI0947-2.jpg?v=1753516294&width=800", "PANCONESI0761-2.jpg?v=1754074062&width=800", "Stellar", "Ear"],
+  ["constellation-cluster-earrings-silver-fw26", "Constellation Cluster Earrings", 382, "89.jpg?v=1783072222&width=800", undefined, "Constellation", "Ear"],
+  ["orbit-ring-silver-fw26", "Orbit Ring", 408, "146.jpg?v=1783070981&width=800", undefined, "Orbit", "Finger", undefined, ["S", "M", "L", "XL"]],
+  ["ascolto-necklace-silver-fw26", "Ascolto Necklace", 988, "124.jpg?v=1783073028&width=800", undefined, "Ascolto", "Neck"],
+ ] as SeedProductRow[]).map(([slug, name, priceEur, image, hoverImage, family, category, colors, sizes]) => ({
+  slug, name, priceEur, image: `${CDN}${image}`, hoverImage: hoverImage ? `${CDN}${hoverImage}` : undefined, family, category, colors, sizes,
+}));
+
+export const SEED_COLLECTIONS = ([
+  ["new", "New", "New arrivals", "dddsssaa.jpg?v=1782931528&width=900"],
+  ["all", "Shop All", "141 Products", "sdfg.jpg?v=1782931526&width=900"],
+  ["ss26-collection", "SS26 Collection", "Seasonal", "PANCONESI_LOV_V2_ng-60.jpg?v=1769950491&width=900"],
+  ["fw26-collection", "FW26 Collection", "Seasonal", "sdfg.jpg?v=1783170905&width=700"],
+  ["signatures", "Signatures", "Icons", "0386_8231fb93-21de-423b-afbd-6186ac8b2234.jpg?v=1783093794&width=700"],
+  ["ascolto", "Ascolto", "Family", "IMG_1490.jpg?v=1769693986&width=900"],
+  ["blow-up", "Blow Up", "Family", "new_blow_up_family.jpg?v=1769694116&width=900"],
+  ["diamanti-constellation", "Constellation", "Family", "IMG_1720-Edit.jpg?v=1769694217&width=900"],
+  ["orbit", "Orbit", "Family", "IMG_1929.jpg?v=1769694325&width=900"],
+  ["serpent", "Serpent", "Family", "IMG_1894.jpg?v=1769694407&width=900"],
+  ["stellar-solar", "Stellar", "Family", "IMG_1971.jpg?v=1769694484&width=900"],
+  ["silver", "Silver", "Composition", "IMG_1637_copy.jpg?v=1769694742&width=900"],
+  ["gold", "Gold", "Composition", "IMG_1923.jpg?v=1769694833&width=900"],
+  ["enamel", "Enamel", "Composition", "IMG_1389.jpg?v=1769694993&width=900"],
+  ["gems", "Gems", "Composition", "IMG_1727.jpg?v=1769695142&width=900"],
+  ["ear", "Ear", "Anatomy", "dddsssaa.jpg?v=1782931528&width=900"],
+  ["finger", "Finger", "Anatomy", "dfffff.jpg?v=1782931528&width=900"],
+  ["neck", "Neck", "Anatomy", "260712_panconesi_atelier_ck_01_R_40e3f32f-6161-4373-9cae-c800dbc2a271.jpg?v=1788786183&width=900"],
+  ["wrist", "Wrist", "Anatomy", "260616_panconesi_objects10556_R_42cf7bfa-a147-463a-8f43-bd93c54a4ba8.jpg?v=1783003644&width=900"],
+  ["body", "Body", "Anatomy", "body-diamanti-chandelier-brooch.jpg?v=1769693703&width=900"],
+  ["objects", "Objects", "Beyond jewelry", "260616_panconesi_objects10556_R_42cf7bfa-a147-463a-8f43-bd93c54a4ba8.jpg?v=1783003644&width=900"],
+  ["seasonalsale", "Sale", "Selected pieces", "PANCONESI_LOV_V2_ng-60.jpg?v=1769950491&width=900"],
+  ["popular", "Bestsellers", "Popular", "new_blow_up_family.jpg?v=1769694116&width=900"],
+  ["p-collection", "P Earrings", "Collection", "IMG_1637_copy.jpg?v=1769694742&width=900"],
+  ["ear-cuffs", "Ear Cuffs", "Category", "IMG_1929.jpg?v=1769694325&width=900"],
+] as SeedCollectionRow[]).map(([slug, title, eyebrow, image]) => ({ slug, title, eyebrow, image: `${["fw26-collection", "signatures"].includes(slug) ? COLLECTION_CDN : CDN}${image}` }));
